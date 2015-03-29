@@ -16374,6 +16374,8 @@ void Player::AreaExploredOrEventHappens(uint32 questId)
             {
                 q_status.Explored = true;
                 m_QuestStatusSave[questId] = QUEST_DEFAULT_SAVE_TYPE;
+                SetQuestSlotState(log_slot, QUEST_STATE_COMPLETE);
+                SendQuestComplete(questId);
             }
         }
         if (CanCompleteQuest(questId))
@@ -22659,7 +22661,7 @@ void Player::UpdateTriggerVisibility()
     WorldPacket packet;
     for (auto itr = m_clientGUIDs.begin(); itr != m_clientGUIDs.end(); ++itr)
     {
-        if (itr->IsCreature())
+        if (itr->IsCreatureOrVehicle())
         {
             Creature* creature = GetMap()->GetCreature(*itr);
             // Update fields of triggers, transformed units or unselectable units (values dependent on GM state)

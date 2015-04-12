@@ -610,4 +610,10 @@ void CharacterDatabaseConnection::DoPrepareStatements()
     PrepareStatement(CHAR_UPD_QUEST_TRACK_GM_COMPLETE, "UPDATE quest_tracker SET completed_by_gm = 1 WHERE id = ? AND character_guid = ? ORDER BY quest_accept_time DESC LIMIT 1", CONNECTION_ASYNC);
     PrepareStatement(CHAR_UPD_QUEST_TRACK_COMPLETE_TIME, "UPDATE quest_tracker SET quest_complete_time = NOW() WHERE id = ? AND character_guid = ? ORDER BY quest_accept_time DESC LIMIT 1", CONNECTION_ASYNC);
     PrepareStatement(CHAR_UPD_QUEST_TRACK_ABANDON_TIME, "UPDATE quest_tracker SET quest_abandon_time = NOW() WHERE id = ? AND character_guid = ? ORDER BY quest_accept_time DESC LIMIT 1", CONNECTION_ASYNC);
+
+    //########################## TrinityRP
+    // DisplayID (morph)
+    PrepareStatement(CHAR_UPD_DISPLAYID, "UPDATE character_displayid SET displayid = ? WHERE guid = ?", CONNECTION_ASYNC);  //save
+    PrepareStatement(CHAR_SEL_DISPLAYID, "SELECT displaid FROM character_displayid WHERE guid = ?", CONNECTION_ASYNC);  //load
+    //########################## TrinityRP
 }

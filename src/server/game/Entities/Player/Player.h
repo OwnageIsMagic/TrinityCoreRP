@@ -827,6 +827,10 @@ enum PlayerLoginQueryIndex
     PLAYER_LOGIN_QUERY_LOAD_INSTANCE_LOCK_TIMES     = 30,
     PLAYER_LOGIN_QUERY_LOAD_SEASONAL_QUEST_STATUS   = 31,
     PLAYER_LOGIN_QUERY_LOAD_MONTHLY_QUEST_STATUS    = 32,
+    //########################## TrinityRP
+    // DisplayID (morph) load
+    PLAYER_LOGIN_QUERY_LOAD_DISPLAYID              = 33,
+    //########################## TrinityRP
     MAX_PLAYER_LOGIN_QUERY
 };
 
@@ -2415,6 +2419,10 @@ class Player : public Unit, public GridObject<Player>
         void _LoadGlyphs(PreparedQueryResult result);
         void _LoadTalents(PreparedQueryResult result);
         void _LoadInstanceTimeRestrictions(PreparedQueryResult result);
+        //########################## TrinityRP
+        // DisplayID (morph) load
+        void _LoadDisplayId(PreparedQueryResult result);
+        //########################## TrinityRP
 
         /*********************************************************/
         /***                   SAVE SYSTEM                     ***/
@@ -2437,6 +2445,10 @@ class Player : public Unit, public GridObject<Player>
         void _SaveTalents(SQLTransaction& trans);
         void _SaveStats(SQLTransaction& trans);
         void _SaveInstanceTimeRestrictions(SQLTransaction& trans);
+        //########################## TrinityRP
+        // DisplayID (morph) save
+        void _SaveDisplayId(SQLTransaction& trans);
+        //########################## TrinityRP
 
         /*********************************************************/
         /***              ENVIRONMENTAL SYSTEM                 ***/

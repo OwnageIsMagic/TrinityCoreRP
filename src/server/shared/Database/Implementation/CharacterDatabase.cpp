@@ -614,6 +614,6 @@ void CharacterDatabaseConnection::DoPrepareStatements()
     //########################## TrinityRP
     // DisplayID (morph)
     PrepareStatement(CHAR_UPD_DISPLAYID, "UPDATE character_displayid SET displayid = ? WHERE guid = ?", CONNECTION_ASYNC);  //save
-    PrepareStatement(CHAR_SEL_DISPLAYID, "SELECT displaid FROM character_displayid WHERE guid = ?", CONNECTION_ASYNC);  //load
+    PrepareStatement(CHAR_SEL_DISPLAYID, "SELECT displayid FROM character_displayid WHERE guid = ?", CONNECTION_ASYNC);  //load
     //########################## TrinityRP
 }

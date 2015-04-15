@@ -5,8 +5,9 @@
 void Player::_SaveDisplayId(SQLTransaction& trans)
 {
     PreparedStatement* stmt = CharacterDatabase.GetPreparedStatement(CHAR_UPD_DISPLAYID);
-    stmt->setUInt32 (0 , GetDisplayId ());
-    stmt->setUInt32(1, GetGUIDLow());
+    stmt->setUInt32(0, GetGUIDLow());
+    stmt->setUInt32 (1 , GetDisplayId ());
+    stmt->setUInt32(2, GetDisplayId ());
     trans->Append(stmt);
 }
 

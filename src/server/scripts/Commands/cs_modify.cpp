@@ -1252,7 +1252,7 @@ public:
         uint16 display_id = (uint16)atoi((char*)args);
 
         Unit* target = handler->getSelectedUnit();
-        if (!target)
+        if (!target || !(handler->GetSession ()->GetPlayer ()->IsGameMaster ())) //########################## TrinityRP // DisplayID (morph)
             target = handler->GetSession()->GetPlayer();
 
         // check online security
@@ -1383,7 +1383,7 @@ public:
     static bool HandleDeMorphCommand(ChatHandler* handler, const char* /*args*/)
     {
         Unit* target = handler->getSelectedUnit();
-        if (!target)
+        if (!target || !(handler->GetSession ()->GetPlayer ()->IsGameMaster ())) //########################## TrinityRP // DisplayID (morph)
             target = handler->GetSession()->GetPlayer();
 
         // check online security

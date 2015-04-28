@@ -543,6 +543,13 @@ enum CharacterDatabaseStatements
     CHAR_UPD_QUEST_TRACK_COMPLETE_TIME,
     CHAR_UPD_QUEST_TRACK_ABANDON_TIME,
 
+    //########################## TrinityRP
+    // DisplayID (morph)
+    CHAR_UPD_DISPLAYID,  //save
+    CHAR_SEL_DISPLAYID,  //load
+    //########################## TrinityRP
+
+
     MAX_CHARACTERDATABASE_STATEMENTS
 };
 

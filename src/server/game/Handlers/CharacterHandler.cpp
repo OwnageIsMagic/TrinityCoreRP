@@ -203,6 +203,13 @@ bool LoginQueryHolder::Initialize()
     stmt->setUInt32(0, m_accountId);
     res &= SetPreparedQuery(PLAYER_LOGIN_QUERY_LOAD_INSTANCE_LOCK_TIMES, stmt);
 
+    //########################## TrinityRP
+    // DisplayID (morph) load
+    stmt = CharacterDatabase.GetPreparedStatement(CHAR_SEL_DISPLAYID);
+    stmt->setUInt32(0, lowGuid);
+    res &= SetPreparedQuery(PLAYER_LOGIN_QUERY_LOAD_DISPLAYID, stmt);
+    //########################## TrinityRP
+
     return res;
 }
 
